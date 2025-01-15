@@ -1,0 +1,64 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Create</h1>
+<form method="post" asp-action="Create">
+    <table class="table table-bordered">
+        <tr>
+            <td> <label asp-for="EmployeeName"></label> </td>
+            <td>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="Email"></label> </td>
+            <td>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="Gender"></label> </td>
+            <td>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="Salary"></label> </td>
+            <td>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="Department!.DepartmentName"></label> </td>
+            <td>
+                <select asp-for="DepartmentId" asp-items="ViewBag.dept" class="form-control" >
+                    <option value="-1">--- Select Department ---</option>
+                </select>
+
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

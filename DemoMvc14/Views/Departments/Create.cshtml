@@ -1,0 +1,31 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Create Department";
+}
+
+<h1>Create</h1>
+<form method="post" asp-action="Create">
+    <table class="table table-bordered">
+        <tr>
+            <td> <label asp-for="DepartmentName"></label> </td>
+            <td>
+                <input asp-for="DepartmentName" class="form-control" />
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

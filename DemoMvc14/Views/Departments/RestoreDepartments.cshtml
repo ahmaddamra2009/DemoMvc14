@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Department>
+@{
+    ViewData["Title"] = "RestoreDepartments";
+}
+
+<h1>Restore Deleted Departments</h1>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a asp-action="ConfirmRestor"
+               asp-controller="Departments"
+               asp-route-id="@item.DepartmentId">
+                @item.DepartmentName
+            </a>
+
+        </li>
+    }
+
+
+</ul>

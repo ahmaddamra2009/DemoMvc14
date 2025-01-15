@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Department>
+@{
+    ViewData["Title"] = "Deaprtments";
+}
+
+<h1>Departments</h1>
+
+<a asp-action="Create" class="btn btn-primary btn-sm">Add Department</a>
+@if (ViewBag.total > 0)
+{
+    <a asp-action="RestoreDepartments" class="btn btn-danger btn-sm">Restore</a>
+
+}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th> @Html.DisplayNameFor(m => m.DepartmentName) </th>
+        <th> operations </th>
+    </tr>
+
+    @foreach (var dept in Model)
+    {
+        <tr>
+            <td>@dept.DepartmentName</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@dept.DepartmentId" class="btn btn-warning btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@dept.DepartmentId" class="btn btn-danger btn-sm">Delete</a>
+                <a asp-action="Details" asp-route-id="@dept.DepartmentId" class="btn btn-secondary btn-sm">More</a>
+
+            </td>
+        </tr>
+
+    }
+
+</table>
+
