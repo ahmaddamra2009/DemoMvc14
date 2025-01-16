@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "DepartmentEmployees";
+}
+
+<h1>Department @ViewBag.DeptName</h1>
+
+<ul>
+    @foreach (var item in Model)
+	{
+        <li> @item.EmployeeName , @item.Department!.DepartmentName</li>
+	}
+
+</ul>

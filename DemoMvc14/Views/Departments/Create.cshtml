@@ -4,6 +4,9 @@
 }
 
 <h1>Create</h1>
+
+@await Component.InvokeAsync("Employee")
+
 <form method="post" asp-action="Create">
     <table class="table table-bordered">
         <tr>

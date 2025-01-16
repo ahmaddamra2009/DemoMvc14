@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Department>
+
+    <ul>
+
+        @foreach (var dept in Model)
+        {
+            <li>
+               @dept.DepartmentName
+            </li>
+
+        }
+    </ul>

@@ -6,6 +6,7 @@
 
 <h1>Create</h1>
 <form method="post" asp-action="Create">
+    <div asp-validation-summary="All"></div>
     <table class="table table-bordered">
         <tr>
             <td> <label asp-for="EmployeeName"></label> </td>
@@ -24,7 +25,10 @@
         <tr>
             <td> <label asp-for="Gender"></label> </td>
             <td>
-                <input asp-for="Gender" class="form-control" />
+                <select asp-for="Gender" 
+                        class="form-control" 
+                        asp-items="Html.GetEnumSelectList<Employee.Genders>()"
+                        ></select>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </td>
         </tr>

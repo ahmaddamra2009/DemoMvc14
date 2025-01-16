@@ -27,7 +27,7 @@ namespace DemoMvc14.Models
         [ForeignKey("Department")]
         public int DepartmentId { get; set; }
         public Department? Department { get; set; }
-
+  
         // ---------------------
         public enum Genders
         {

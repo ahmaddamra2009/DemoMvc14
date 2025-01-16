@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Employee>
+
+<h2>Employees VC</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>@Html.DisplayNameFor(m=>m.EmployeeName)</th>
+        <th>@Html.DisplayNameFor(m=>m.Department!.DepartmentName)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeName</td>
+            <td>@item.Department!.DepartmentName</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+Welcome @ViewBag.Name
+<a asp-action="Create" class="btn btn-success">New Product</a>
+<table class="table table-bordered">
+    <tr>
+        <td> @Html.DisplayNameFor(m=>m.ProductName) </td>
+        <td> @Html.DisplayNameFor(m=>m.Price) </td>
+        <td>Operation</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning">Edit</a>
+                <a asp-action="Delete" class="btn btn-danger">Delete</a>
+                <a asp-action="Details" class="btn btn-secondary">Details</a>
+
+            </td>
+        </tr>
+    }
+</table>

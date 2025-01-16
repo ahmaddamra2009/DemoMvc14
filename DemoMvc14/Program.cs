@@ -9,6 +9,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("con1"));
 });
+builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromMinutes(5));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,7 +22,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

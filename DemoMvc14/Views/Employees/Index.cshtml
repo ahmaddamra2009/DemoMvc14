@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Employee>
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,3 +8,35 @@
 <a asp-action="Create" class="btn btn-success" >
     Add Employee
 </a>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th> @Html.DisplayNameFor(m => m.EmployeeName) </th>
+        <th> @Html.DisplayNameFor(m => m.Department!.DepartmentName) </th>
+        <th> operations </th>
+    </tr>
+
+    @foreach (var dept in Model)
+    {
+        <tr>
+            <td>@dept.EmployeeName</td>
+            <td>
+                <a asp-action="DepartmentEmployees" asp-route-id="@dept.DepartmentId">
+
+                    @dept.Department!.DepartmentName
+                </a>
+
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@dept.EmployeeId" class="btn btn-warning btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@dept.EmployeeId" class="btn btn-danger btn-sm">Delete</a>
+                <a asp-action="Details" asp-route-id="@dept.EmployeeId" class="btn btn-secondary btn-sm">More</a>
+
+            </td>
+        </tr>
+
+    }
+
+</table>.
+
+
